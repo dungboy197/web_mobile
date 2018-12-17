@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta lang="vi" />
+	<meta charset="utf-8" />
+	<title>Anh Dũng Mobile - Mua Bán Điện Thoại Di Động</title>
+    <meta name = "viewport" content = "width = device-width, initial-scale = 1">
+	<link rel="stylesheet" type="text/css" href="home.css" />
+    <link href="https://fonts.googleapis.com/css?family=Dosis" rel="stylesheet">
+    
+    <!--jq -->
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+    <!-- css-->
+    <link href="bootstrap/css/bootstrap.min.css"  type="text/css" rel="stylesheet" />
+    
+    <!-- js -->
+     <script src="bootstrap/js/bootstrap.min.js"></script>
+    
+<script type="text/javascript">
+        $(document).ready(function() {
+    $('a.login-window').click(function() {
+
+        //lấy giá trị thuộc tính href - chính là phần tử "#login-box"
+        var loginBox = $(this).attr('href');
+
+        //cho hiện hộp đăng nhập trong 300ms
+        $(loginBox).fadeIn("slow");
+
+        // thêm phần tử id="over" vào sau body
+        $('body').append('<div id="over"></div>');
+        $('#over').fadeIn(300);
+        
+        return false;
+    });
+
+    // khi click đóng hộp thoại
+    $(document).on('click', "a.close, #over", function() { 
+        $('#over, .login').fadeOut(300 , function() {
+            $('#over').remove();  
+        }); 
+        return false;
+    });
+    
+});
+</script> 
+    
+ 
+
+    
+</head>
+    <body>
+
+
+        
+        <!-- header -->
+        <header style="position: fixed;z-index: 99999;background-color: white;top: 0px" >
+         <div class="wellcome">
+	<p>Chào Mừng đến với <i><strong>Anh Dũng Mobile</strong></i> , rất hân hạnh được phụ vụ bạn !</p>
+</div>
+    <div class="row">
+             
+         <div class="col-md-3">
+             <a href="html_dung.html" > <img src="logodung.png"  width="200px" height="100px" style="margin-left: 60px;"> </a>
+             
+         </div>
+        
+          <div class="col-lg-5">
+    <div class="input-group"  style="padding-top: 20px;">
+      <input type="text" class="form-control" placeholder="bạn muốn tìm gì ?" value maxlength="70"id="search"  />
+      <span class="input-group-btn">
+        <button class="btn btn-default" type="button">Tìm Kiếm</button>
+      </span>
+    </div><!-- /input-group -->
+  </div>
+        
+        
+        
+
+        <div class="col-md-1" style="margin-top: 5px;">
+            <a href="cart.html" ><img src="cart.png" style="width: 50px ; height: 50px"> </a>
+            
+        </div>
+        
+        <div class="col-md-3" id="a" >
+        <div class="signup">
+            <a href="#login-box" class="login-window set-button1 button " >Đăng ký </a>
+        <div id="login-box" class="login">
+                       <a href="#" class="close"><img src="close.png" class="img-close" title="Close Window" alt="Close" /></a>
+            <p class="login_title"> <b>Đăng ký</b> </p>
+ 
+                   <form method="post" class="login-content" action="#">
+            <label class="username">
+            <span>Tên hoặc email</span>
+            <input id="username" name="username" value="" type="text" autocomplete="on" placeholder="Username">
+            </label>
+            <label class="password">
+            <span>Mật khẩu</span>
+            <input id="password" name="password" value="" type="password" placeholder="Password">
+            </label>
+                        <label class="password">
+            <span>Nhập lại Mật khẩu</span>
+            <input id="password" name="password" value="" type="password" placeholder="Password">
+            </label>
+            <button class="button submit-button" type="button">Đăng Ký </button>
+       
+            </form>
+        
+        </div>
+            </div>
+            <span class="or"> hoặc </span>
+            
+            
+            <div class="logintest">
+        <a href="#login-boxx" class="login-window set-button1 button" >Đăng nhập</a>
+        <div id="login-boxx" class="login">
+                        <a href="#" class="close">
+            <img src="close.png" class="img-close" title="Close Window" alt="Close" /></a>
+            
+            <p class="login_title"><b>Đăng nhập</b> </p>
+            
+
+                   <form method="post" class="login-content" action="#">
+            <label class="username">
+            <span>Tên hoặc email</span>
+            <input id="username" name="username" value="" type="text" autocomplete="on" placeholder="Username">
+            </label>
+            <label class="password">
+            <span>Mật khẩu</span>
+            <input id="password" name="password" value="" type="password" placeholder="Password">
+            </label>
+            <button class="button submit-button" type="button">Đăng nhập</button>
+            <p>
+            <a class="forgot" href="#">Quên mật khẩu?</a>
+            </p>        
+            </form> 
+            
+        </div>
+                </div>   
+      </div>
+        
+    </div>
+
+    <!-- menu ngang -->
+    <div id="menu" >
+        <ul>
+        <li><a href="html_dung.html" >Home</a></li>
+            
+        <li><a href="#" >Điện thoại</a>
+            <ul class="sub-menu">
+                <li><a href="apple.html" >Apple</a></li>
+                <li><a href="#" >Samsung</a></li>
+                <li><a href="#" >HTC</a></li>
+                <li><a href="#" >OPPO</a></li>
+                <li><a href="#" >SONY</a></li>            
+            </ul>
+            </li>
+            <li><a href="apple.html" >Apple</a>
+                        <ul class="sub-menu">
+                            <table>
+                                <td>
+                                    <li><a href="#" >Apple Iphone X</a></li>
+                                    <li><a href="#" >Apple Iphone 8 Plus</a></li>
+                                    <li> <a href="#" >Apple Iphone 8</a></li>
+                                    <li><a href="chi-tiet-san-pham.html" >Apple Iphone 7 Plus</a></li>
+                                    <li><a href="#" >Apple Iphone 7</a></li>
+                                    
+                                </td>
+                                <td>
+                                    <li><a href="#" >Apple Iphone 6s plus</a></li>
+                                    <li><a href="#" >Apple Iphone 6 Plus</a></li>
+                                    <li><a href="#" >Apple Iphone 6</a></li>
+                                    <li><a href="#" >Apple Iphone SE</a></li>
+                                    <li><a href="#" >Apple Iphone 5s</a></li>
+                                    
+                                </td>
+                            </table>
+                        </ul>   
+          </li>
+            <li><a href="#" >Samsung</a>
+              <ul class="sub-menu">
+                                    <li><a href="#" >Galaxy S</a></li>
+                                    <li> <a href="#" >Galaxy Note</a></li>
+                                    <li><a href="#" >Galaxy A</a></li>
+                                    <li><a href="#" >Galaxy J </a></li>
+                        </ul>   
+            </li>
+            <li><a href="#" >Phụ kiện</a>
+                          <ul class="sub-menu">
+                                    <li><a href="#" >Phụ kiện Apple</a></li>
+                                    <li> <a href="#" >Phụ Kiện Samsung</a></li>
+                                    <li><a href="#" >Sản Phẩm khác</a></li>
+                        </ul> 
+            </li>
+        <li><a href="#" >Hỗ Trợ</a>
+            <ul class="sub-menu">
+                                    <li><a href="#" >Hướng Dẫn Mua Hàng</a></li>
+                                    <li> <a href="#" >Giao Nhận và Thanh Toán</a></li>
+                                    <li><a href="#" >Đổi Trả và Bảo Hành</a></li>
+                        </ul> 
+            </li>    
+        </ul>
+    </div>
+    
+        </header>
+        
+        <!-- end header --> 
+        
+        <!-- end header --> 
+    <div class="container" style="margin-top: 220px; ">
+        <h1>Giỏ Hàng </h1>
+        <hr />
+        
+                <div class="row">
+            <table class="table table-bordered" id="table-products">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Tên Sản Phẩm</th>
+                        <th>Giá sản Phẩm </th>
+                        <th>Số Lượng</th>
+                        <th>Tổng Tiền </th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+        <div>
+            <button class="btn btn-lg btn-success" id="button-clear">Xoá Hết </button>
+        </div>
+        <div class="text-right">
+
+        </div>
+        
+        </div>
+        <div class="set-cart-button">
+        
+                          
+      <div class="set-button-cart" >
+              <button class="button">
+          <a href="html_dung.html" class="set-cart" >
+               Tiếp Tục Mua Hàng  
+          </a>
+      </button>  
+            <button class="button">
+          <a href="#" class="set-cart" >
+               Thanh Toán 
+          </a>
+      </button> 
+
+     </div>   
+
+        
+        </div>
+        
+
+        
+        
+        
+        
+         <!--end container-->
+        
+        
+        
+        <!-- footer --> 
+ <footer class="set-footer" style="margin-top: 50px;">
+           <div class="container">
+         <div class="row">
+      <div class="col-md-4">
+      <p class="introduce"> <b>Fasttrack SE </b> </p>
+<p>        </p>
+<a href="fasttrack.html" class="set-text">Xem Chi Tiết <br /> </a>
+      </div>
+      <div class="col-md-4">
+        <p class="introduce"><b>About Me </b></p>
+<p>Đặng Anh Dũng </p>
+ <a href="introduceme.html" class="set-text">Xem Chi Tiết <br /> </a>
+        </div>
+      <div class="col-md-4">
+          
+                <p class="introduce"><b>Contact</b></p>
+    <p> <img src="map.png" style="height: 25px ; width: 25px" > 379 ,điện biên phủ ,quận thanh khê ,TP đà nẵng ,đà nẵng </p>
+<p><img src="phone.png" style="height: 25px ; width: 25px"> 01626097691 </p>
+
+    <img src="mail.png" style="height: 25px ; width: 25px ; float: left ; margin-right: 10px " />
+    <address>
+        <a href="mailto:ffse1702004@st.fasttrack.edu.vn" class="set-text" >ffse1702004@st.fasttrack.edu.vn</a>
+    </address>
+        </div>
+        </div> 
+        </div> 
+        </footer> 
+        <!-- end footer --> 
+   
+    </body>
+        
+</html>
+<script>
+    // Định nghĩa một mảng các phần tử sẽ bỏ vào giỏ hàng
+    var shoppingCartItems = [];
+
+    $(document).ready(function () {
+        // Kiểm tra nếu đã có sessionStorage["shopping-cart-items"] hay chưa?
+        if (sessionStorage["shopping-cart-items"] != null) {
+            shoppingCartItems = JSON.parse(sessionStorage["shopping-cart-items"].toString());
+        }
+
+        // Hiển thị thông tin từ giỏ hàng
+        displayShoppingCartItems();
+    });
+
+
+    // Sự kiện click các button có class=".add-to-cart"
+    $(".add-to-cart").click(function () {
+        var button = $(this); // Lấy đối tượng button mà người dùng click
+        var id = button.attr("id"); // id của sản phẩm là id của button
+        var name = button.attr("data-name"); // name của sản phẩm là thuộc tính data-name của button
+        var price = button.attr("data-price"); // price của sản phẩm là thuộc tính data-price của button
+        var quantity = 1; // Số lượng
+
+
+        var item = {
+            id: id,
+            name: name,
+            price: price,
+            quantity: quantity
+        };
+
+        var exists = false;
+        if (shoppingCartItems.length > 0) {
+            $.each(shoppingCartItems, function (index, value) {
+                // Nếu mặt hàng đã tồn tại trong giỏ hàng thì chỉ cần tăng số lượng mặt hàng đó trong giỏ hàng.
+                if (value.id == item.id) {
+                    value.quantity++;
+                    exists = true;
+                    return false;
+                }
+            });
+        }
+
+        // Nếu mặt hàng chưa tồn tại trong giỏ hàng thì bổ sung vào mảng
+        if (!exists) {
+            shoppingCartItems.push(item);
+        }
+
+        // Lưu thông tin vào sessionStorage
+        sessionStorage["shopping-cart-items"] = JSON.stringify(shoppingCartItems); // Chuyển thông tin mảng shoppingCartItems sang JSON trước khi lưu vào sessionStorage
+        // Gọi hàm hiển thị giỏ hàng
+        displayShoppingCartItems();
+    });
+
+    // Xóa hết giỏ hàng shoppingCartItems
+    $("#button-clear").click(function () {
+        shoppingCartItems = [];
+        sessionStorage["shopping-cart-items"] = JSON.stringify(shoppingCartItems);
+        $("#table-products > tbody").html("");
+    });
+
+
+    // Hiển thị giỏ hàng ra table
+    function displayShoppingCartItems() {
+        if (sessionStorage["shopping-cart-items"] != null) {
+            shoppingCartItems = JSON.parse(sessionStorage["shopping-cart-items"].toString()); // Chuyển thông tin từ JSON trong sessionStorage sang mảng shoppingCartItems.
+
+            $("#table-products > tbody").html("");
+            // Duyệt qua mảng shoppingCartItems để append từng item dòng vào table
+            $.each(shoppingCartItems, function (index, item) {
+                var htmlString = "";
+                htmlString += "<tr>";
+                htmlString += "<td>" + item.id + "</td>";
+                htmlString += "<td>" + item.name + "</td>";
+                htmlString += "<td style='text-align: right'>" + item.price + "</td>";
+                htmlString += "<td style='text-align: right'>" + item.quantity + "</td>";
+                htmlString += "<td style='text-align: right'>" + item.price * item.quantity + "</td>";
+                htmlString += "</tr>";
+
+                $("#table-products > tbody:last").append(htmlString);
+
+            });
+        }
+    }
+</script>

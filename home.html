@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<html>
+
+<!-- head -->
+<head>
+    <meta lang="vi" />
+  <meta charset="utf-8" />
+  <title>Anh Dũng Mobile - Mua Bán Điện Thoại Di Động</title>
+    <meta name = "viewport" content = "width = device-width, initial-scale = 1">
+  <link rel="stylesheet" type="text/css" href="css/css_ver_0.1.css" />
+
+    <link href="https://fonts.googleapis.com/css?family=Dosis" rel="stylesheet">
+    <!--jq -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+    <!-- css-->
+    <link href="bootstrap/css/bootstrap.min.css"  type="text/css" rel="stylesheet" />
+    
+    <!-- js -->
+     <script src="bootstrap/js/bootstrap.min.js"></script>
+    
+<script type="text/javascript">
+        $(document).ready(function() {
+    $('a.login-window').click(function() {
+
+        //lấy giá trị thuộc tính href - chính là phần tử "#login-box"
+        var loginBox = $(this).attr('href');
+
+        //cho hiện hộp đăng nhập trong 300ms
+        $(loginBox).fadeIn("slow");
+
+        // thêm phần tử id="over" vào sau body
+        $('body').append('<div id="over"></div>');
+        $('#over').fadeIn(300);
+        
+        return false;
+    });
+
+    // khi click đóng hộp thoại
+    $(document).on('click', "a.close, #over", function() { 
+        $('#over, .login').fadeOut(300 , function() {
+            $('#over').remove();  
+        }); 
+        return false;
+    });
+    
+});
+</script> 
+</head>
+<!-- end head -->
+<!--body -->
+    <body>    
+
+        <!-- header -->
+        <header style="position: fixed;z-index: 99999;background-color: white;top: 0px" >
+         <div class="header_wc">
+  <p>Chào Mừng đến với <i><strong>Anh Dũng Mobile</strong></i> , rất hân hạnh được phụ vụ bạn !</p>
+</div>
+    <!-- logo -->
+    <div class="row">     
+        <div class="col-md-3">
+             <a href="home.html" > <img src="photo/mobile_logo.png"  width="100px" height="50px" style="margin-left: 60px;"> </a>     
+        </div>
+    <!-- end logo -->
+        <!-- search -->
+        <div class="col-lg-5">
+          <div class="input-group"  style="padding-top: 20px;">
+            <input type="text" class="form-control" placeholder="bạn muốn tìm gì ?" value maxlength="70"id="search"  />
+            <span class="input-group-btn">
+                  <button class="btn btn-default" type="button">Tìm Kiếm</button>
+            </span>
+          </div>
+        </div>
+          <!-- end search -->  
+          <!-- cart -->      
+        <div class="col-md-1" style="margin-top: 5px;">
+            <a href="cart.html" ><img src="photo/cart.png" style="width: 50px ; height: 50px"> </a>   
+        </div>
+        
+        <div class="col-md-3" id="a" >
+        <div class="signup">
+            <a href="#login-box" class="login-window set-button1 button " >Đăng ký </a>
+        <div id="login-box" class="login">
+                       <a href="#" class="close"><img src="close.png" class="img-close" title="Close Window" alt="Close" /></a>
+            <p class="login_title"> <b>Đăng ký</b> </p>
+ 
+                   <form method="post" class="login-content" action="#">
+            <label class="username">
+            <span>Tên hoặc email</span>
+            <input id="username" name="username" value="" type="text" autocomplete="on" placeholder="Username">
+            </label>
+            <label class="password">
+            <span>Mật khẩu</span>
+            <input id="password" name="password" value="" type="password" placeholder="Password">
+            </label>
+                        <label class="password">
+            <span>Nhập lại Mật khẩu</span>
+            <input id="password" name="password" value="" type="password" placeholder="Password">
+            </label>
+            <button class="button submit-button" type="button">Đăng Ký </button>
+       
+            </form>
+        
+        </div>
+            </div>
+            <span class="or"> hoặc </span>
+            
+            
+            <div class="logintest">
+        <a href="#login-boxx" class="login-window set-button1 button" >Đăng nhập</a>
+        <div id="login-boxx" class="login">
+                        <a href="#" class="close">
+            <img src="close.png" class="img-close" title="Close Window" alt="Close" /></a>
+            
+            <p class="login_title"><b>Đăng nhập</b> </p>
+            
+
+                   <form method="post" class="login-content" action="#">
+            <label class="username">
+            <span>Tên hoặc email</span>
+            <input id="username" name="username" value="" type="text" autocomplete="on" placeholder="Username">
+            </label>
+            <label class="password">
+            <span>Mật khẩu</span>
+            <input id="password" name="password" value="" type="password" placeholder="Password">
+            </label>
+            <button class="button submit-button" type="button">Đăng nhập</button>
+            <p>
+            <a class="forgot" href="#">Quên mật khẩu?</a>
+            </p>        
+            </form> 
+            
+        </div>
+                </div>   
+      </div>
+        
+    </div>
+
+    <!-- menu ngang -->
+    <div id="menu" >
+        <ul>
+        <li><a href="index.html" >Home</a></li>
+            
+        <li><a href="#" >Điện thoại</a>
+            <ul class="sub-menu">
+                <li><a href="apple.html" >Apple</a></li>
+                <li><a href="#" >Samsung</a></li>
+                <li><a href="#" >HTC</a></li>
+                <li><a href="#" >OPPO</a></li>
+                <li><a href="#" >SONY</a></li>            
+            </ul>
+            </li>
+            <li><a href="apple.html" >Apple</a>
+                        <ul class="sub-menu">
+                            <table>
+                                <td>
+                                    <li><a href="#" >Apple Iphone X</a></li>
+                                    <li><a href="#" >Apple Iphone 8 Plus</a></li>
+                                    <li> <a href="#" >Apple Iphone 8</a></li>
+                                    <li><a href="chi-tiet-san-pham.html" >Apple Iphone 7 Plus</a></li>
+                                    <li><a href="#" >Apple Iphone 7</a></li>
+                                    
+                                </td>
+                                <td>
+                                    <li><a href="#" >Apple Iphone 6s plus</a></li>
+                                    <li><a href="#" >Apple Iphone 6 Plus</a></li>
+                                    <li><a href="#" >Apple Iphone 6</a></li>
+                                    <li><a href="#" >Apple Iphone SE</a></li>
+                                    <li><a href="#" >Apple Iphone 5s</a></li>
+                                    
+                                </td>
+                            </table>
+                        </ul>   
+          </li>
+            <li><a href="#" >Samsung</a>
+              <ul class="sub-menu">
+                                    <li><a href="#" >Galaxy S</a></li>
+                                    <li> <a href="#" >Galaxy Note</a></li>
+                                    <li><a href="#" >Galaxy A</a></li>
+                                    <li><a href="#" >Galaxy J </a></li>
+                        </ul>   
+            </li>
+            <li><a href="#" >Phụ kiện</a>
+                          <ul class="sub-menu">
+                                    <li><a href="#" >Phụ kiện Apple</a></li>
+                                    <li> <a href="#" >Phụ Kiện Samsung</a></li>
+                                    <li><a href="#" >Sản Phẩm khác</a></li>
+                        </ul> 
+            </li>
+        <li><a href="#" >Hỗ Trợ</a>
+            <ul class="sub-menu">
+                                    <li><a href="#" >Hướng Dẫn Mua Hàng</a></li>
+                                    <li> <a href="#" >Giao Nhận và Thanh Toán</a></li>
+                                    <li><a href="#" >Đổi Trả và Bảo Hành</a></li>
+                        </ul> 
+            </li>    
+        </ul>
+    </div>
+    
+        </header>
+        
+        <!-- end header --> 
+    
+        <!--  -->
+<div class="container" style="margin-top: 200px;">
+       
+    <!-- slide -->
+  <div id = "myCarousel" class = "carousel slide"> 
+   
+   <!-- Carousel items -->
+   <div class = "carousel-inner">
+      <div class = "item active">
+         <img src = "iphoneX.png" style="height: 500px"  alt = "First slide" >
+      </div>
+      
+      <div class = "item">
+         <img src = "iphone.jpg" style="height: 500px"  alt = "Second slide">
+      </div>
+      
+      <div class = "item">
+         <img src = "samsung1.jpg" style="height: 500px ; width: 100%"  alt = "Third slide">
+      </div>
+   </div>
+   
+   <!-- Carousel nav -->
+   <a class="left carousel-control" href="#myCarousel" data-slide="prev"> <span class="glyphicon glyphicon-chevron-left"></span> </a> <a class="right carousel-control" href="#myCarousel" data-slide="next"> <span class="glyphicon glyphicon-chevron-right"></span> </a> 
+   
+   <!-- Controls buttons -->
+   <div style = "text-align:center;">
+
+      <input type = "button" class = "btn slide-one" value = "Iphone X">
+      <input type = "button" class = "btn slide-two" value = "Iphone 8 plus">            
+      <input type = "button" class = "btn slide-three" value = "Samsung Note8">
+   </div>
+  
+</div> 
+<script>
+   $(function() {
+       
+       
+  
+      // Cycles to the previous item
+      $(".prev-slide").click(function() {
+         $("#myCarousel").carousel('prev');
+      });
+      
+      // Cycles to the next item
+      $(".next-slide").click(function() {
+         $("#myCarousel").carousel('next');
+      });
+      
+      // Cycles the carousel to a particular frame 
+      $(".slide-one").click(function() {
+         $("#myCarousel").carousel(0);
+      });
+      
+      $(".slide-two").click(function() {
+         $("#myCarousel").carousel(1);
+      });
+      
+      $(".slide-three").click(function() {
+         $("#myCarousel").carousel(2);
+      });
+   });
+
+</script>
+    
+    <!-- end slide -->
+    
+    <!-- box -->
+<div class="catalog__main__content "
+                    data-qa-locator="general-products"
+                >
+<div class="catalog__status component set-box-button component-catalog_status cf" data-component="catalog_status">
+    <div class="catalog__status__title">
+        <div class="c-catalog-title c-catalog-title_mid" data-qa-locator="catalog-search-result-title">
+            <h1 class="c-catalog-title__title">
+                    Sản Phẩm Nổi Bật Nhất   
+            </h1>
+</div>
+<div class="fs-ctf-hrdrop dropdown"  >
+                            <button type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="button">
+                                Sắp xếp theo:<span class="sortText">Giá cao đến thấp</span> <i class="icdt"></i>
+                            </button>
+                            <ul class="dropdown-menu listfilterv4" data-query="sort">
+                                <li class="sort sortdefault active  "><a href=" javascript:;" data-value="gia-cao-den-thap">Giá cao đến thấp</a> </li>
+                                <li class="sort   "><a href="javascript:;" data-value="gia-thap-den-cao">Giá thấp đến cao</a> </li>
+                                <li class="sort    "><a href="javascript:;" data-value="ban-chay-nhat">Bán chạy nhất</a> </li>
+                                <li class="sort "><a href="javascript:;" data-value="xem-nhieu-nhat">Xem  nhiều nhất</a> </li>
+                            </ul>
+        
+    <script>
+    
+        
+    </script>
+        </div>
+    </div>
+</div>
+                    <div style="clear: both;"></div>
+    </div>
+    <!-- end box -->
+    <hr />
+    <!-- san pham noi bat -->
+    
+    <div class="row"> 
+        
+  <div class="col-xs-4 col-sm-2">
+           <div class="set-button">
+      <a href="#" >
+       <img src="photo/iphone-x.jpg" class="set-image" >  
+      </a>
+
+          <div class="mobile-home"  >
+                   <a href="#"> <p>Iphone X 128Gb </p>
+                        <p>Giá Liên Hệ</p>
+       </a>     
+       <button class="button">
+            <a href="#login-box2" class="login-window" > Đặt Hàng   </a>
+      </button>              
+        <div id="login-box2" class="login" style="margin: 0 auto">
+                       <a href="#" class="close"><img src="close.png" class="img-close" title="Close Window" alt="Close" /></a>
+            <p class="login_title"> <b>Đặt Hàng </b> </p>
+ 
+    <form role="form" id="contact-form" class="contact-form">
+                    <div class="row">
+                    <div class="col-md-6">
+                      <div class="form-group">
+                            <input type="text" class="form-control" name="Name" autocomplete="off" id="Name" placeholder="Name">
+                      </div>
+                    </div>
+                      <div class="col-md-6">
+                      <div class="form-group">
+                            <input type="email" class="form-control" name="email" autocomplete="off" id="email" placeholder="E-mail">
+                      </div>
+                    </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-12">
+                      <div class="form-group">
+                            <textarea class="form-control textarea" rows="3" name="Message" id="Message" placeholder="vui lòng mô tả sản phẩm mà bạn cần,chúng tôi sẽ liên hệ với bạn lúc có sản phẩm ,xin cảm ơn ! 
+                                                                                                                      vd: Iphone X 128Gb ,màu đen,số lượng : 1"></textarea>
+                      </div>
+                    </div>
+                    </div>
+                    <div class="row">
+                    <div class="col-md-12">
+                  <button type="submit" class="btn main-btn pull-right">Đặt Hàng </button>
+                  </div>
+                  </div>
+                </form>
+        
+        </div>
+              </div>
+           </div>
+        </div>
+
+       <div class="col-xs-4 col-sm-2">
+           <div class="set-button">
+      <a href="#" >
+       <img src="photo/iphone-8.jpg" class="set-image" >  
+      </a>
+
+          <div class="mobile-home"  >
+                   <a href="#"> <p>Iphone 8 128Gb </p>
+                        <p>Giá Liên Hệ</p>
+       </a>     
+       <button class="button">
+            <a href="#login-box1" class="login-window" > Đặt Hàng   </a>
+      </button>              
+        <div id="login-box1" class="login" style="margin: 0 auto">
+                       <a href="#" class="close"><img src="close.png" class="img-close" title="Close Window" alt="Close" /></a>
+            <p class="login_title"> <b>Đặt Hàng </b> </p>
+ 
+    <form role="form" id="contact-form" class="contact-form">
+                    <div class="row">
+                    <div class="col-md-6">
+                      <div class="form-group">
+                            <input type="text" class="form-control" name="Name" autocomplete="off" id="Name" placeholder="Name">
+                      </div>
+                    </div>
+                      <div class="col-md-6">
+                      <div class="form-group">
+                            <input type="email" class="form-control" name="email" autocomplete="off" id="email" placeholder="E-mail">
+                      </div>
+                    </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-12">
+                      <div class="form-group">
+                            <textarea class="form-control textarea" rows="3" name="Message" id="Message" placeholder="vui lòng mô tả sản phẩm mà bạn cần,chúng tôi sẽ liên hệ với bạn lúc có sản phẩm ,xin cảm ơn ! 
+                                                                                                                      vd: Iphone X 128Gb ,màu đen,số lượng : 1"></textarea>
+                      </div>
+                    </div>
+                    </div>
+                    <div class="row">
+                    <div class="col-md-12">
+                  <button type="submit" class="btn main-btn pull-right">Đặt Hàng </button>
+                  </div>
+                  </div>
+                </form>
+        
+        </div>
+              </div>
+           </div>
+        </div>
+
+
+          
+ <div class="col-xs-4 col-sm-2">
+     <div class="set-button">
+      <a href="chi-tiet-san-pham.html" >
+       <img src="photo/iphone7-plus.png" class="set-image" >  
+      </a>
+      <div class="mobile-home" >
+    
+                         <a href="chi-tiet-san-pham.html"> <p>Iphone 7 Plus 128Gb </p>
+          <p>22.999.000 đ</p></a>
+<button id="0001" data-name="Iphone 7 Plus 128Gb" data-price="22999000" class="add-to-cart button">          <a href="cart.html" >
+               mua ngay 
+          </a> </button>    
+              </div>
+
+          
+     </div>  
+        </div>
+        
+        
+        <div class="col-xs-4 col-sm-2">
+    <div class="set-button">
+      <a href="#" >
+       <img src="photo/samsung-s8-plus.png" class="set-image" >  
+      </a>
+      <div class="mobile-home" >
+            
+                         <a href="#"> <p>Samsung Galaxy S8 plus</p>
+          <p>20.490.000 đ</p></a>
+<button id="0002" data-name="Samsung Galaxy S8 plus" data-price="20490000" class="add-to-cart button">          <a href="cart.html" >
+               mua ngay 
+          </a> </button>     
+              
+
+     </div>  
+        </div>   
+        </div>
+    
+<div class="col-xs-4 col-sm-2">
+    <div class="set-button">
+      <a href="#" >
+       <img src="photo/samsung-s8.png" class="set-image" >  
+      </a>
+      <div class="mobile-home" >
+            
+                         <a href="#"> <p>Samsung Galaxy S8 </p>
+          <p>18.490.000  đ</p></a>
+<button id="0002" data-name="Samsung Galaxy S8" data-price="18490000 " class="add-to-cart button">          <a href="cart.html" >
+               mua ngay 
+          </a> </button>     
+              
+
+     </div>  
+        </div>   
+        </div>
+  <div class="col-xs-4 col-sm-2">
+      <div class="set-button">
+      <a href="#" >
+       <img src="photo/samsung-note8.png" class="set-image" >        
+      </a>
+      <div class="mobile-home" >
+           
+               <a href="#"> <p>Samsung Note 8 </p>
+          <p> 22.490.000 đ</p></a>
+<button id="0003" data-name="Samsung Note 8" data-price="22490000  " class="add-to-cart button">          <a href="cart.html" >
+               mua ngay 
+          </a> </button>     
+             
+          
+          </div>
+        </div>
+        </div>
+      
+</div>
+    
+   
+        <!--  2 -->
+        <div class="row"> 
+        
+  <div class="col-xs-4 col-sm-2">
+      <div class="set-button">
+        <a href="#" >
+       <img src="iphone_7.png" class="set-image" >  
+      </a>
+      <div class="mobile-home" >
+           
+                           <a href="#"> <p>Iphone 7 128Gb </p>
+          <p> 18.999.000  đ</p></a>
+<button id="0004" data-name="Iphone 7 128Gb" data-price="18999000  " class="add-to-cart button">          <a href="cart.html" >
+               mua ngay 
+          </a> </button>   
+             
+
+      </div>
+        </div>
+            </div>
+        
+       <div class="col-xs-4 col-sm-2">
+           <div class="set-button">
+      <a href="#" >
+       <img src="6s_plus%20.png" class="set-image" >  
+      </a>
+      <div class="mobile-home" >
+           
+                  <a href="#"> <p>Iphone 6s plus 16Gb </p>
+          <p>13.999.000  đ</p></a>
+<button id="0005" data-name="Iphone 6s plus 16Gb" data-price="13999000  " class="add-to-cart button">          <a href="cart.html" >
+               mua ngay 
+          </a> </button> 
+             
+      </div>
+        </div>
+            </div>
+            
+            
+            
+            <div class="col-xs-4 col-sm-2">
+                <div class="set-button">
+           <a href="#" >
+       <img src="samsung_c9_pro.png" class="set-image" >  
+      </a>
+      <div class="mobile-home" >
+          
+                   <a href="#"> <p>Samsung C9 Pro </p>
+          <p> 11.490.000  đ</p></a>
+<button id="0005" data-name="Samsung C9 Pro" data-price="11490000  " class="add-to-cart button">          <a href="cart.html" >
+               mua ngay 
+          </a> </button>    
+            
+         
+     </div>  
+        </div>
+            </div>
+                    
+            
+<div class="col-xs-4 col-sm-2">
+    <div class="set-button">
+      <a href="#" >
+       <img src="samsung_galaxy_A9_pro.jpg" class="set-image" >  
+      </a>
+      <div class="mobile-home" >
+           
+                  <a href="#"> <p>Samsung Galaxy A9 Pro</p>
+          <p>9.990.000  đ</p></a>
+<button id="0006" data-name="Samsung Galaxy A9 Pro" data-price="9990000  " class="add-to-cart button">          <a href="cart.html" >
+               mua ngay 
+          </a> </button>   
+            
+         
+     </div>  
+        </div> 
+            </div>
+        
+<div class="col-xs-4 col-sm-2">
+    <div class="set-button">
+      <a href="#" >
+       <img src="samsung_galaxy_j7+.png" class="set-image" >  
+      </a>
+      <div class="mobile-home" >
+               <a href="#"> <p>Samsung Galaxy 7+</p>
+          <p>6.990.000  đ</p></a>
+<button id="0007" data-name="Samsung Galaxy 7+" data-price="6990000  " class="add-to-cart button">          <a href="cart.html" >
+               mua ngay 
+          </a> </button>    
+           
+         
+     </div>  
+        </div>
+            </div>
+        
+        
+  <div class="col-xs-4 col-sm-2">
+      <div class="set-button">
+      <a href="#" >
+       <img src="htc.png"class="set-image" >
+          
+      </a>
+      <div class="mobile-home" >
+          
+                <a href="#"> <p>HTC U11 </p>
+          <p>16.990.000 đ</p></a>
+      
+<button id="0008" data-name="HTC U11" data-price="16990000" class="add-to-cart button">          <a href="cart.html" >
+               mua ngay 
+          </a> </button>      
+              
+        </div>
+     
+        </div>
+            </div>
+       
+</div>
+    
+        </div>
+    
+        
+         <!--end container-->
+        
+      <!-- footer --> 
+  <footer class="set-footer">
+           <div class="container">
+         <div class="row">
+      <div class="col-md-4">
+      <p class="introduce"> <b>Fasttrack SE </b> </p>
+<p>        </p>
+<a href="fasttrack.html" class="set-text">Xem Chi Tiết <br /> </a>
+      </div>
+      <div class="col-md-4">
+        <p class="introduce"><b>About Me </b></p>
+<p>Đặng Anh Dũng </p>
+ <a href="introduceme.html" class="set-text">Xem Chi Tiết <br /> </a>
+        </div>
+      <div class="col-md-4">
+          
+                <p class="introduce"><b>Contact</b></p>
+    <p> <img src="map.png" style="height: 25px ; width: 25px" > 379 ,điện biên phủ ,quận thanh khê ,TP đà nẵng ,đà nẵng </p>
+<p><img src="phone.png" style="height: 25px ; width: 25px"> 01626097691 </p>
+
+    <img src="mail.png" style="height: 25px ; width: 25px ; float: left ; margin-right: 10px " />
+    <address>
+        <a href="mailto:ffse1702004@st.fasttrack.edu.vn" class="set-text" >ffse1702004@st.fasttrack.edu.vn</a>
+    </address>
+        </div>
+        </div> 
+        </div> 
+        </footer>      
+  
+        <!-- end footer --> 
+   
+    </body>
+        
+</html> 
+<script>
+    // Định nghĩa một mảng các phần tử sẽ bỏ vào giỏ hàng
+    var shoppingCartItems = [];
+
+    $(document).ready(function () {
+        // Kiểm tra nếu đã có sessionStorage["shopping-cart-items"] hay chưa?
+        if (sessionStorage["shopping-cart-items"] != null) {
+            shoppingCartItems = JSON.parse(sessionStorage["shopping-cart-items"].toString());
+        }
+
+        // Hiển thị thông tin từ giỏ hàng
+        displayShoppingCartItems();
+    });
+
+
+    // Sự kiện click các button có class=".add-to-cart"
+    $(".add-to-cart").click(function () {
+        var button = $(this); // Lấy đối tượng button mà người dùng click
+        var id = button.attr("id"); // id của sản phẩm là id của button
+        var name = button.attr("data-name"); // name của sản phẩm là thuộc tính data-name của button
+        var price = button.attr("data-price"); // price của sản phẩm là thuộc tính data-price của button
+        var quantity = 1; // Số lượng
+
+
+        var item = {
+            id: id,
+            name: name,
+            price: price,
+            quantity: quantity
+        };
+
+        var exists = false;
+        if (shoppingCartItems.length > 0) {
+            $.each(shoppingCartItems, function (index, value) {
+                // Nếu mặt hàng đã tồn tại trong giỏ hàng thì chỉ cần tăng số lượng mặt hàng đó trong giỏ hàng.
+                if (value.id == item.id) {
+                    value.quantity++;
+                    exists = true;
+                    return false;
+                }
+            });
+        }
+
+        // Nếu mặt hàng chưa tồn tại trong giỏ hàng thì bổ sung vào mảng
+        if (!exists) {
+            shoppingCartItems.push(item);
+        }
+
+        // Lưu thông tin vào sessionStorage
+        sessionStorage["shopping-cart-items"] = JSON.stringify(shoppingCartItems); // Chuyển thông tin mảng shoppingCartItems sang JSON trước khi lưu vào sessionStorage
+        // Gọi hàm hiển thị giỏ hàng
+        displayShoppingCartItems();
+    });
+
+    // Xóa hết giỏ hàng shoppingCartItems
+    $("#button-clear").click(function () {
+        shoppingCartItems = [];
+        sessionStorage["shopping-cart-items"] = JSON.stringify(shoppingCartItems);
+        $("#table-products > tbody").html("");
+    });
+
+
+    // Hiển thị giỏ hàng ra table
+    function displayShoppingCartItems() {
+        if (sessionStorage["shopping-cart-items"] != null) {
+            shoppingCartItems = JSON.parse(sessionStorage["shopping-cart-items"].toString()); // Chuyển thông tin từ JSON trong sessionStorage sang mảng shoppingCartItems.
+
+            $("#table-products > tbody").html("");
+            // Duyệt qua mảng shoppingCartItems để append từng item dòng vào table
+            $.each(shoppingCartItems, function (index, item) {
+                var htmlString = "";
+                htmlString += "<tr>";
+                htmlString += "<td>" + item.id + "</td>";
+                htmlString += "<td>" + item.name + "</td>";
+                htmlString += "<td style='text-align: right'>" + item.price + "</td>";
+                htmlString += "<td style='text-align: right'>" + item.quantity + "</td>";
+                htmlString += "<td style='text-align: right'>" + item.price * item.quantity + "</td>";
+                htmlString += "</tr>";
+
+                $("#table-products > tbody:last").append(htmlString);
+
+            });
+        }
+    }
+</script>
+        

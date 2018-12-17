@@ -1,0 +1,917 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta lang="vi" />
+	<meta charset="utf-8" />
+	<title>Anh Dũng Mobile - Mua Bán Điện Thoại Di Động</title>
+    <meta name = "viewport" content = "width = device-width, initial-scale = 1">
+	<link rel="stylesheet" type="text/css" href="home.css" />
+    <link href="https://fonts.googleapis.com/css?family=Dosis" rel="stylesheet">
+    
+    <!--jq -->
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+    <!-- css-->
+    <link href="bootstrap/css/bootstrap.min.css"  type="text/css" rel="stylesheet" />
+    
+    <!-- js -->
+     <script src="bootstrap/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+    <style>
+
+  th, td {
+    padding: 30px;
+    text-align: left;
+    </style>
+<script type="text/javascript">
+        $(document).ready(function() {
+    $('a.login-window').click(function() {
+
+        //lấy giá trị thuộc tính href - chính là phần tử "#login-box"
+        var loginBox = $(this).attr('href');
+
+        //cho hiện hộp đăng nhập trong 300ms
+        $(loginBox).fadeIn("slow");
+
+        // thêm phần tử id="over" vào sau body
+        $('body').append('<div id="over"></div>');
+        $('#over').fadeIn(300);
+        
+        return false;
+    });
+
+    // khi click đóng hộp thoại
+    $(document).on('click', "a.close, #over", function() { 
+        $('#over, .login').fadeOut(300 , function() {
+            $('#over').remove();  
+        }); 
+        return false;
+    });
+    
+});
+</script> 
+    <script>
+    
+    var __slice = [].slice;
+
+(function($, window) {
+  var Starrr;
+
+  Starrr = (function() {
+    Starrr.prototype.defaults = {
+      rating: void 0,
+      numStars: 5,
+      change: function(e, value) {}
+    };
+
+    function Starrr($el, options) {
+      var i, _, _ref,
+        _this = this;
+
+      this.options = $.extend({}, this.defaults, options);
+      this.$el = $el;
+      _ref = this.defaults;
+      for (i in _ref) {
+        _ = _ref[i];
+        if (this.$el.data(i) != null) {
+          this.options[i] = this.$el.data(i);
+        }
+      }
+      this.createStars();
+      this.syncRating();
+      this.$el.on('mouseover.starrr', 'span', function(e) {
+        return _this.syncRating(_this.$el.find('span').index(e.currentTarget) + 1);
+      });
+      this.$el.on('mouseout.starrr', function() {
+        return _this.syncRating();
+      });
+      this.$el.on('click.starrr', 'span', function(e) {
+        return _this.setRating(_this.$el.find('span').index(e.currentTarget) + 1);
+      });
+      this.$el.on('starrr:change', this.options.change);
+    }
+
+    Starrr.prototype.createStars = function() {
+      var _i, _ref, _results;
+
+      _results = [];
+      for (_i = 1, _ref = this.options.numStars; 1 <= _ref ? _i <= _ref : _i >= _ref; 1 <= _ref ? _i++ : _i--) {
+        _results.push(this.$el.append("<span class='glyphicon .glyphicon-star-empty'></span>"));
+      }
+      return _results;
+    };
+
+    Starrr.prototype.setRating = function(rating) {
+      if (this.options.rating === rating) {
+        rating = void 0;
+      }
+      this.options.rating = rating;
+      this.syncRating();
+      return this.$el.trigger('starrr:change', rating);
+    };
+
+    Starrr.prototype.syncRating = function(rating) {
+      var i, _i, _j, _ref;
+
+      rating || (rating = this.options.rating);
+      if (rating) {
+        for (i = _i = 0, _ref = rating - 1; 0 <= _ref ? _i <= _ref : _i >= _ref; i = 0 <= _ref ? ++_i : --_i) {
+          this.$el.find('span').eq(i).removeClass('glyphicon-star-empty').addClass('glyphicon-star');
+        }
+      }
+      if (rating && rating < 5) {
+        for (i = _j = rating; rating <= 4 ? _j <= 4 : _j >= 4; i = rating <= 4 ? ++_j : --_j) {
+          this.$el.find('span').eq(i).removeClass('glyphicon-star').addClass('glyphicon-star-empty');
+        }
+      }
+      if (!rating) {
+        return this.$el.find('span').removeClass('glyphicon-star').addClass('glyphicon-star-empty');
+      }
+    };
+
+    return Starrr;
+
+  })();
+  return $.fn.extend({
+    starrr: function() {
+      var args, option;
+
+      option = arguments[0], args = 2 <= arguments.length ? __slice.call(arguments, 1) : [];
+      return this.each(function() {
+        var data;
+
+        data = $(this).data('star-rating');
+        if (!data) {
+          $(this).data('star-rating', (data = new Starrr($(this), option)));
+        }
+        if (typeof option === 'string') {
+          return data[option].apply(data, args);
+        }
+      });
+    }
+  });
+})(window.jQuery, window);
+
+$(function() {
+  return $(".starrr").starrr();
+});
+
+$( document ).ready(function() {
+      
+  $('#hearts').on('starrr:change', function(e, value){
+    $('#count').html(value);
+  });
+  
+  $('#hearts-existing').on('starrr:change', function(e, value){
+    $('#count-existing').html(value);
+  });
+});</script>
+    
+
+
+    
+</head>
+    <body>
+        <!-- header -->
+                 <header style="position: fixed;z-index: 99999;background-color: white;top:0px" >
+         <div class="wellcome">
+	<p>Chào Mừng đến với <i><strong>Anh Dũng Mobile</strong></i> , rất hân hạnh được phụ vụ bạn !</p>
+</div>
+    <div class="row">
+             
+         <div class="col-md-3">
+             <a href="html_dung.html" > <img src="logodung.png"  width="200px" height="100px" style="margin-left: 60px;"> </a>
+             
+         </div>
+          <div class="col-lg-5">
+    <div class="input-group"  style="padding-top: 20px;">
+      <input type="text" class="form-control" placeholder="bạn muốn tìm gì ?" value maxlength="70"id="search"  />
+      <span class="input-group-btn">
+        <button class="btn btn-default" type="button">Tìm Kiếm</button>
+      </span>
+    </div><!-- /input-group -->
+  </div>
+        <div class="col-md-1" style="margin-top: 5px;">
+            <a href="cart.html" ><img src="cart.png" style="width: 50px ; height: 50px"> </a>
+            
+        </div>
+        
+        <div class="col-md-3" id="a" >
+        <div class="signup">
+            <a href="#login-box" class="login-window set-button1 button " >Đăng ký </a>
+        <div id="login-box" class="login">
+                       <a href="#" class="close"><img src="close.png" class="img-close" title="Close Window" alt="Close" /></a>
+            <p class="login_title"> <b>Đăng ký</b> </p>
+ 
+                   <form method="post" class="login-content" action="#">
+            <label class="username">
+            <span>Tên hoặc email</span>
+            <input id="username" name="username" value="" type="text" autocomplete="on" placeholder="Username">
+            </label>
+            <label class="password">
+            <span>Mật khẩu</span>
+            <input id="password" name="password" value="" type="password" placeholder="Password">
+            </label>
+                        <label class="password">
+            <span>Nhập lại Mật khẩu</span>
+            <input id="password" name="password" value="" type="password" placeholder="Password">
+            </label>
+            <button class="button submit-button" type="button">Đăng Ký </button>
+       
+            </form>
+        
+        </div>
+            </div>
+            <span class="or"> hoặc </span>
+            
+            
+            <div class="logintest">
+        <a href="#login-boxx" class="login-window set-button1 button" >Đăng nhập</a>
+        <div id="login-boxx" class="login">
+                        <a href="#" class="close">
+            <img src="close.png" class="img-close" title="Close Window" alt="Close" /></a>
+            
+            <p class="login_title"><b>Đăng nhập</b> </p>
+            
+
+                   <form method="post" class="login-content" action="#">
+            <label class="username">
+            <span>Tên hoặc email</span>
+            <input id="username" name="username" value="" type="text" autocomplete="on" placeholder="Username">
+            </label>
+            <label class="password">
+            <span>Mật khẩu</span>
+            <input id="password" name="password" value="" type="password" placeholder="Password">
+            </label>
+            <button class="button submit-button" type="button">Đăng nhập</button>
+            <p>
+            <a class="forgot" href="#">Quên mật khẩu?</a>
+            </p>        
+            </form> 
+            
+        </div>
+                </div>   
+      </div>
+        
+    </div>
+
+    <!-- menu ngang -->
+    <div id="menu">
+        <ul>
+        <li><a href="html_dung.html" >Home</a></li>
+            
+        <li><a href="#" >Điện thoại</a>
+            <ul class="sub-menu">
+                <li><a href="apple.html" >Apple</a></li>
+                <li><a href="#" >Samsung</a></li>
+                <li><a href="#" >HTC</a></li>
+                <li><a href="#" >OPPO</a></li>
+                <li><a href="#" >SONY</a></li>            
+            </ul>
+            </li>
+            <li><a href="apple.html" >Apple</a>
+                        <ul class="sub-menu">
+                            <table>
+                                <td>
+                                    <li><a href="#" >Apple Iphone X</a></li>
+                                    <li><a href="#" >Apple Iphone 8 Plus</a></li>
+                                    <li> <a href="#" >Apple Iphone 8</a></li>
+                                    <li><a href="chi-tiet-san-pham.html" >Apple Iphone 7 Plus</a></li>
+                                    <li><a href="#" >Apple Iphone 7</a></li>
+                                    
+                                </td>
+                                <td>
+                                    <li><a href="#" >Apple Iphone 6s plus</a></li>
+                                    <li><a href="#" >Apple Iphone 6 Plus</a></li>
+                                    <li><a href="#" >Apple Iphone 6</a></li>
+                                    <li><a href="#" >Apple Iphone SE</a></li>
+                                    <li><a href="#" >Apple Iphone 5s</a></li>
+                                    
+                                </td>
+                            </table>
+                        </ul>   
+          </li>
+            <li><a href="#" >Samsung</a>
+              <ul class="sub-menu">
+                                    <li><a href="#" >Galaxy S</a></li>
+                                    <li> <a href="#" >Galaxy Note</a></li>
+                                    <li><a href="#" >Galaxy A</a></li>
+                                    <li><a href="#" >Galaxy J </a></li>
+                        </ul>   
+            </li>
+            <li><a href="#" >Phụ kiện</a>
+                          <ul class="sub-menu">
+                                    <li><a href="#" >Phụ kiện Apple</a></li>
+                                    <li> <a href="#" >Phụ Kiện Samsung</a></li>
+                                    <li><a href="#" >Sản Phẩm khác</a></li>
+                        </ul> 
+            </li>
+        <li><a href="#" >Hỗ Trợ</a>
+            <ul class="sub-menu">
+                                    <li><a href="#" >Hướng Dẫn Mua Hàng</a></li>
+                                    <li> <a href="#" >Giao Nhận và Thanh Toán</a></li>
+                                    <li><a href="#" >Đổi Trả và Bảo Hành</a></li>
+                        </ul> 
+            </li>    
+        </ul>
+    </div>
+    
+        </header>
+        
+        
+        <div class="container" style="background-color: #ffffff;margin-top: 200px; "> 
+         <div class="iphone7">
+      <h1 class="nameiphone7"> Điện Thoại  Iphone 7 plus 128Gb</h1>
+                        
+    
+      </div>
+  
+     <hr>
+        <div class="row">
+
+             <div class="card">
+    <div class="container-fliud">
+
+
+      <div class="wrapper row">
+
+
+        <div class="preview col-md-6">
+          <div class="preview-pic tab-content">
+            <div class="tab-pane active" id="pic-1"><img src= "iphone-7-plus-1_files/iphone-7-plus-256gb1-1.jpg" /></div>
+            <div class="tab-pane" id="pic-2"><img src="iphone-7-plus-1_files/iphone-7-plus-256gb2-1.jpg" /></div>
+            <div class="tab-pane" id="pic-3"><img src="iphone-7-plus-1_files/iphone-7-plus-256gb-jetblack1-8-org.jpg" /></div>
+            <div class="tab-pane" id="pic-4"><img src="iphone-7-plus-1_files/iphone-7-plus-256gb-jetblack1-9-org.jpg" /></div>
+            <div class="tab-pane" id="pic-5"><img src="iphone-7-plus-1_files/iphone-7-plus-256gb-jetblack1-91-org.jpg" /></div>
+          </div>
+          <ul class="preview-thumbnail nav nav-tabs">
+            <li class="active"><a data-target="#pic-1" data-toggle="tab"><img src="iphone-7-plus-1_files/iphone-7-plus-256gb1-1.jpg" /></a></li>
+            <li><a data-target="#pic-2" data-toggle="tab"><img src="iphone-7-plus-1_files/iphone-7-plus-256gb2-1.jpg" /></a></li>
+            <li><a data-target="#pic-3" data-toggle="tab"><img src="iphone-7-plus-1_files/iphone-7-plus-256gb-jetblack1-8-org.jpg" /></a></li>
+            <li><a data-target="#pic-4" data-toggle="tab"><img src="iphone-7-plus-1_files/iphone-7-plus-256gb-jetblack1-9-org.jpg" /></a></li>
+            <li><a data-target="#pic-5" data-toggle="tab"><img src="iphone-7-plus-1_files/iphone-7-plus-256gb-jetblack1-91-org.jpg" /></a></li>
+          </ul>
+        </div>
+
+
+              
+     <div class="col-md-6">
+         <div class="col-md-12" >
+          <p class="color-rates ">
+     22.999.000  <strong>₫</strong>
+   </p>   
+         </div>
+           
+         <div  class="color-introduce">
+                   <div class="col-md-6" >
+      
+      
+      <label>Màn Hình :</label>
+      <span>5.5 inch (1920 x 1080 pixels)</span><br />
+      <label>Pin :</label>
+      <span> Li-Ion 11.1 Wh (2900 mAh)</span><br />
+      <label>CPU :</label>
+      <span>  Apple A10, 4 Nhân, Quad-core 2.3 GHz</span><br />      
+      
+            </div>
+
+            
+            <div class="col-md-6" >
+                
+                <label>Camera :</label>
+          <span>  Chính: Dual Camera 12.0MP; Phụ: 7.0MP</span><br />
+                <label>Ram :</label>
+          <span>  3gb</span><br />
+                <label>HDH :</label>
+          <span>  iOS</span> <br />
+            </div>
+             
+            <div class="col-md-12" >
+                  <div class="col-md-3" >
+             </div>
+        
+                                            
+         </div>
+                            <div class="col-md-2" >
+             </div>
+         </div>
+             
+             
+              <div class="col-md-12" >
+                  
+ <div>
+     <h5 class="colors">Số Lượng: <input type="number" min="1" max="99" step="1" value="1" id="slg">
+     </h5>
+     
+<button id="0001" data-name="Iphone 7 Plus 128Gb" data-price="22999000" class="add-to-cart button" style="width: 100%;height: auto;">          <a href="cart.html" class="set-text" >
+               <p style="font-size: 40px;">Mua Ngay </p>
+          </a> </button>    
+     
+
+          
+     </div>  
+                  
+                  
+                  
+
+         </div>
+
+         </div>
+         
+
+
+
+      </div>
+
+
+
+
+
+    </div>
+  </div>
+            
+            </div>   
+            </div>
+        <div>
+        
+        <ul class="nav nav-tabs">
+    <li class="active"><a data-toggle="tab" href="#home">chi tiết sản phẩm</a></li>
+    <li><a data-toggle="tab" href="#menu1">chi tiết cấu hình  </a></li>
+    <li><a data-toggle="tab" href="#menu2">đánh giá</a></li>
+    <li><a data-toggle="tab" href="#menu3">bình luận</a></li>
+  </ul>
+
+  <div class="tab-content">
+    <div id="home" class="tab-pane fade in active">
+        <h2><b>Đánh giá chi tiết iPhone 7 Plus 128GB</b></h2>
+        <p>Với những tính năng vượt trội về camera, iPhone 7 Plus red 128GB là sản phẩm nổi bật còn hơn cả iPhone 7 khi cùng ra mắt trước đây, khả năng chụp ảnh zoom 10x với camera kép và chụp chân dung xoá phông đã thuyết phục người dùng một cách ngọt ngào nhất. Không chỉ vậy, với phiên bản màu đỏ rực rỡ này, iPhone 7 Plus đỏ thật sự là một sản phẩm đáng mơ ước của nhiều người.</p>
+        <br />
+        <b>Thiết kế hoàn thiện, sắc màu nổi bật</b>
+        <img src="iPhone%207%20Plus%20(19).jpg" style="width: 100% ; height: auto" >
+        <p>Về thiết kế, vẫn là nhôm nguyên khối liền lạc nhưng iPhone 7 Plus red đã có những nét thay đổi tinh tế khi đưa hai dải ăng-ten lên sát hai cạnh trên dưới, đồng thời bỏ đi jack cắm tai nghe 3.5 mm. Điểm nhấn ấn tượng nhất về ngoại hình của iPhone 7 Plus red chính là màu đỏ rực rỡ lần đầu tiên được đưa lên iPhone. Trước đây thì chúng ta chỉ có dòng iPhone 5c với những màu sắc nổi bật. Trên phiên bản iPhone 7 Plus đỏ này, ngay cả dải ăng-ten cũng được thiết kế tiếp màu khiến sản phẩm liền lạc và cuốn hút hơn hẳn.</p>
+        <br />
+        <b>Màn hình rộng 5.5 inch, sáng hơn, nhiều màu sắc hơn</b>
+        <img src="iPhone-7-Plus-(7).jpg" style="width: 100% ; height: auto" >
+        <p>iPhone 7 Plus red cũng có màn hình 5.5 inch độ phân giải 1080x1920 pixels tương tự iPhone 6s Plus, như vậy về kích thước tổng thể chúng ta không có gì thay đổi. Tuy nhiên, tấm nền màn hình mới đã được bổ sung thêm 25% độ sáng, đạt mức cao nhất 625 nits cùng khả năng tái tạo màu sắc, gam màu rộng hơn và hỗ trợ 3D Touch.</p>
+        <br />
+        <b>Nút Home hoàn toàn mới</b>
+        <img src="iPhone%207%20Plus%20(17).jpg" style="width: 100% ; height: auto">
+        <p>Với chiếc điện thoại thế hệ mới, Apple đã "xoá sổ" hoàn toàn nút bấm vật lý trên màn hình iPhone. Giờ đây nút Home ở vị trí cũ đã trở thành cảm ứng, khi bạn nhấn xuống nó vẫn cảm nhận được lực nhấn và sẽ rung nhẹ để bạn biết rằng bạn đã tương tác. Apple đã sử dụng Taptic Engine trên Force Touch của Macbook cho chiếc iPhone mới này. Mặc dù vậy phím Home vẫn có cảm biến vân tay Touch ID và tích hợp nhiều tính năng bảo mật.</p>
+        <br /> 
+        <b>Camera chất lượng đột phá như máy ảnh chuyên nghiệp</b>
+        <img src="iPhone%207%20Plus%20(16).jpg">
+        <p>iPhone 7 Plus red đi kèm với một camera kép độ phân giải đồng thời 12 MP, trong số đó có một ống kính góc rộng khẩu độ lên đến f/1.8 và một ống kính zoom (tele) lên đến 10x, cùng tính năng ổn định hình ảnh quang học tự động. Nó cũng bao gồm một đèn flash 2 tông màu và đèn flash quad-LED. Camera hỗ trợ quay film 4K 60fps, chụp xóa phông, chụp trước lấy nét sau như một máy ảnh chuyên nghiệp. Camera trước độ phân giải 7 MP, chụp selfie tốt hơn và tự động chống rung. Bên cạnh đó, iOS 10 cũng cho phép người dùng iPhone 7 Plus red chỉnh sửa, chọn lựa ảnh từ Live Photos, lưu ảnh ở định dạng RAW.</p>
+        <br />
+        <b>Tính năng chống nước tiện lợi</b>
+        <img src="iPhone%207%20Plus%20(15).jpg">
+        <p>Có thể nói tính năng chống nước là điều làm hài lòng nhất các tín đồ nhà Táo. Với tiêu chuẩn chống nước IP67 sẽ giúp iPhone mới có thể sống ở độ sâu 1 mét nước trong 30 phút, vậy là từ nay bạn sẽ quên đi nỗi lo về thấm nước trên iPhone 7 Plus red khi đi trong trời mưa hay lỡ tay rớt nước.</p>
+        <br /> 
+        <b>Hiệu năng vượt trội, lưu trữ thoải mái</b>
+        <p>iPhone 7 Plus red sử dụng chip A10 Fusion 4 lõi, 64-bit với tốc độ cực nhanh. Apple công bố con chip này có hiệu năng xử lý cao hơn 40% so với chip A9 và gấp 2 lần so với chip A8. Đặc biệt là nó còn cao gấp 120 lần so với iPhone đời đầu. Đi cùng đó là sự nâng cấp về bộ nhớ trong, phiên bản 16 GB trước đây đã bị loại bỏ, thay vào đó chúng ta sẽ có bộ nhớ trong 128 GB ở phiên bản này để thoải mái lưu trữ.</p>
+        <br /> 
+        <b>Âm thanh sống động cùng loa stereo</b>
+        <p>Loa ngoài trên iPhone 7 Plus red bất ngờ được nâng cấp khi từ dạng đơn lên loa kép Stereo, với một loa nằm ở cạnh đáy và một nằm ở cạnh trên, cho âm lượng sống động gấp hai lần trên iPhone 6s Plus.</p>
+        <br /> 
+        <b>Tăng thời lượng sử dụng pin</b>
+        <img src="iPhone%207%20Plus%20(14).jpg" />
+        <p>Theo công bố từ Apple, iPhone 7 Plus red có khả năng sử dụng liên tục trong thời gian hơn 1 ngày, với 60 giờ lướt web không dây và 13 giờ sử dụng mạng LTE. Tăng hơn so với iPhone 6s Plus và đảm bảo sử dụng cho cả ngày dài.
+Xem thêm : Phiên bản iPhone 7 Plus RED với mặt trước đen cực kì ấn tượng</p>
+    </div>
+      
+      
+    <div id="menu1" class="tab-pane fade">
+       <table id="table-menu1">
+    
+     <h2 style="color: black">Thông số kỹ thuật chi tiết </h2>   
+                              <hr>
+            
+          <p class="color-introduce-mobile"> Màn hình </p>  
+                              <hr>
+            
+            <tr>   <td>   <p> Công nghệ màn hình :</p> </td> <td> <p>Retina</p> </td>  </tr>
+            <tr>   <td>   <p>Màu màn hình : </p> </td> <td> <p>	16 Triệu màu
+	</p> </td>  </tr>
+            <tr>   <td>   <p> Chuẩn màn hình :</p> </td> <td> <p>		Chuẩn HD</p> </td>  </tr>
+            <tr>   <td>   <p>Độ phân giải màn hình : </p> </td> <td> <p>1334 x 750 pixels
+	</p> </td>  </tr>
+            <tr>   <td>   <p>Công nghệ cảm ứng : </p> </td> <td> <p>	3D Touch
+</p> </td>  </tr>
+            <tr>   <td>   <p>Mặt kính màn hình : </p> </td> <td> <p>	Kính oleophobic (ion cường lực)	</p> </td>  </tr>
+                              
+            </table>
+        
+            <table>
+                              
+<p class="color-introduce-mobile"> Camera  Trước
+ </p>     <hr> 
+                          
+                              <tr>   <td>   <p> Video Call :</p> </td> <td> <p>	Có</p> </td>  </tr>
+                              <tr>   <td>   <p> Độ phân giải :</p> </td> <td> <p>	7.0 MP</p> </td>  </tr>
+                              <tr>   <td>   <p> Thông tin khác :</p> </td> <td> <p>	Selfie ngược sáng HDR, Tự động lấy nét, Quay video Full HD, Nhận diện khuôn mặt, Retina Flash</p> </td>  </tr>
+            </table>
+            
+            <table>
+                <p class="color-introduce-mobile"> Camera Sau
+ </p> <hr> 
+                <tr>   <td>   <p>Độ phân giải :</p> </td> <td> <p>	Dual 12.0 MP</p> </td>  </tr>
+                <tr>   <td>   <p> Quay phim :</p> </td> <td> <p>		Quay phim 4K 2160p@30fps</p> </td>  </tr>
+                <tr>   <td>   <p>Đèn Flash :</p> </td> <td> <p>	Có</p> </td>  </tr>
+                <tr>   <td>   <p>Chụp ảnh nâng cao :</p> </td> <td> <p>	Tự động lấy nét, Chạm lấy nét, Nhận diện khuôn mặt, HDR, Panorama, Chống rung quang học (OIS)</p> </td>  </tr>
+            </table>
+            
+                        <table>
+                <p class="color-introduce-mobile"> Cấu hình phần cứng
+ </p> <hr> 
+                <tr>   <td>   <p>Tốc độ CPU :</p> </td> <td> <p>		2.3 GHz</p> </td>  </tr>
+                <tr>   <td>   <p> Số nhân :	</p> </td> <td> <p>		4 Nhân</p> </td>  </tr>
+                <tr>   <td>   <p>Chipset :</p> </td> <td> <p>		Apple A10</p> </td>  </tr>
+                <tr>   <td>   <p>RAM :</p> </td> <td> <p>	3 GB</p> </td>  </tr>
+                            <tr>   <td>   <p>Chip đồ họa (GPU) :</p> </td> <td> <p>		PowerVR Series7XT Plus</p> </td>  </tr>
+            </table>
+              <table>
+                <p class="color-introduce-mobile">Bộ nhớ & Lưu trữ
+ </p> <hr> 
+                <tr>   <td>   <p>Danh bạ lưu trữ :	</p> </td> <td> <p>Không giới hạn</p> </td>  </tr>
+                <tr>   <td>   <p>ROM :	</p> </td> <td> <p>128 GB </p> </td>  </tr>
+                <tr>   <td>   <p>Bộ nhớ còn lại :</p> </td> <td> <p>	Đang cập nhật</p> </td>  </tr>
+                <tr>   <td>   <p>Thẻ nhớ ngoài :</p> </td> <td> <p>	Không</p> </td>  </tr>
+                            <tr>   <td>   <p>Hỗ trợ thẻ nhớ tối đa :</p> </td> <td> <p>			Không</p> </td>  </tr>
+            </table>
+            
+                        <table>
+                <p class="color-introduce-mobile">Thiết kế & Trọng lượng
+ </p> <hr> 
+                <tr>   <td>   <p>Kiểu dáng :</p> </td> <td> <p>	Thanh (thẳng) + Cảm ứng</p> </td>  </tr>
+                <tr>   <td>   <p>Chất liệu :	</p> </td> <td> <p>	Hợp kim nhôm nguyên khối (mặt kính cong 2,5D)</p> </td>  </tr>
+                <tr>   <td>   <p>Kích thước :</p> </td> <td> <p>	158.2 x 77.9 x 7.3 mm</p> </td>  </tr>
+                <tr>   <td>   <p>Trọng lượng :</p> </td> <td> <p>	188 g</p> </td>  </tr>
+                            <tr>   <td>   <p>Khả năng chống nước :</p> </td> <td> <p>				Chuẩn IP67</p> </td>  </tr>
+            </table>
+                                    <table>
+                <p class="color-introduce-mobile">Thông tin pin
+ </p> <hr> 
+                <tr>   <td>   <p>Loại pin :</p> </td> <td> <p>		Li-Ion</p> </td>  </tr>
+                <tr>   <td>   <p>Dung lượng pin :</p> </td> <td> <p>		11.1 Wh (2900 mAh)</p> </td>  </tr>
+                <tr>   <td>   <p>Pin có thể tháo rời :</p> </td> <td> <p>	Không</p> </td>  </tr>
+                <tr>   <td>   <p>Chế độ sạc nhanh :</p> </td> <td> <p>	Không</p> </td>  </tr>
+
+            </table>
+ <table>
+                <p class="color-introduce-mobile">Kết nối & Cổng giao tiếp
+ </p> <hr> 
+                <tr>   <td>   <p>Băng tần 2G :</p> </td> <td> <p>		GSM/EDGE (850, 900, 1800, 1900 MHz)</p> </td>  </tr>
+                <tr>   <td>   <p>Băng tần 3G :</p> </td> <td> <p>	UMTS / HSPA + / DC-HSDPA (850, 900, 1700/2100, 1900, 2100 MHz)</p> </td>  </tr>
+                <tr>   <td>   <p>Băng tần 4G :</p> </td> <td> <p>	Có</p> </td>  </tr>
+                <tr>   <td>   <p>Hỗ trợ SIM :</p> </td> <td> <p>	Nano Sim</p> </td>  </tr>
+                <tr>   <td>   <p>Khe cắm sim :</p> </td> <td> <p>	1 Sim	</p> </td>  </tr>
+     <tr>   <td>   <p>Wifi :</p> </td> <td> <p>	Wi-Fi 802.11 a/b/g/n/ac	</p> </td>  </tr>
+     <tr>   <td>   <p>GPS :	</p> </td> <td> <p>	A-GPS và GLONASS	</p> </td>  </tr>
+     <tr>   <td>   <p>Bluetooth :	</p> </td> <td> <p>	v4.2	</p> </td>  </tr>
+     <tr>   <td>   <p>GPRS/EDGE :</p> </td> <td> <p>	Có	</p> </td>  </tr>
+     <tr>   <td>   <p>NFC :</p> </td> <td> <p>	Có (Apple Pay)	</p> </td>  </tr>
+     <tr>   <td>   <p>Kết nối USB :</p> </td> <td> <p>	Lightning	</p> </td>  </tr>
+     <tr>   <td>   <p>Cổng kết nối khác :</p> </td> <td> <p>	Air Play, OTG, HDMI
+	</p> </td>  </tr>
+     <tr>   <td>   <p>Cổng sạc :</p> </td> <td> <p>		Lightning</p> </td>  </tr>
+     <tr>   <td>   <p>Jack (Input & Output) :</p> </td> <td> <p>	Lightning	</p> </td>  </tr>
+
+            </table>
+            <table>
+                <p class="color-introduce-mobile">Giải trí & Ứng dụng
+ </p> <hr> 
+                <tr>   <td>   <p>Xem phim :</p> </td> <td> <p>		Có</p> </td>  </tr>
+                <tr>   <td>   <p>Nghe nhạc :</p> </td> <td> <p>	Có</p> </td>  </tr>
+                <tr>   <td>   <p>Ghi âm :	</p> </td> <td> <p> 	Có</p> </td>  </tr>
+                <tr>   <td>   <p>FM radio :</p> </td> <td> <p>		Không</p> </td>  </tr>
+                <tr>   <td>   <p>Đèn pin :</p> </td> <td> <p>	Có</p> </td>  </tr>
+
+            </table>                                        
+      </div> 
+      
+    <div id="menu2" class="tab-pane fade">
+        <div class="container">
+            <div class="row">
+             <div class="col-md-3">
+                <h1>Đánh Giá(4/5) </h1>  
+                </div>
+             <div class="col-md-9" style="margin-top: 20px;">
+                                
+        <i class="fa fa-star" style="font-size:48px;color:#fff832"></i>
+<i class="fa fa-star" style="font-size:48px;color:#fff832"></i>
+<i class="fa fa-star" style="font-size:48px;color:#fff832"></i>
+<i class="fa fa-star" style="font-size:48px;color:#fff832"></i>
+<i class="fa fa-star" style="font-size:48px;"></i>
+<br>
+                </div>
+            </div> 
+    <div class="row lead">
+ đánh giá của bạn là :  <span id="count">0</span> sao 
+        <div id="hearts" class="starrr"></div>
+       
+      </div> 
+            
+    <div>
+        
+                           <div class="comments-list">
+                       <div class="media">
+                           <p class="pull-right"><small>3 days ago</small></p>
+                            <a class="media-left" href="#">
+                              <img src="AfRQQUgaSr+A0moX20a1qg_thumb_26.jpg">
+                            </a>
+                            <div class="media-body">
+                                
+                              <h4 class="media-heading user_name">hoang tuan anh</h4>
+                                        <i class="fa fa-star" style="font-size:12px;color:#fff832"></i>
+<i class="fa fa-star" style="font-size:12px;color:#fff832"></i>
+<i class="fa fa-star" style="font-size:12px;color:#fff832"></i>
+<i class="fa fa-star" style="font-size:12px;color:#fff832"></i>
+                                <i class="fa fa-star" style="font-size:12px;color:#fff832"></i>
+
+<br>    
+                              chất lượng đảm bảo ,phụ vụ tốt 
+                            </div>
+                          </div>
+                       <div class="media">
+                           <p class="pull-right"><small>7 days ago</small></p>
+                            <a class="media-left" href="#">
+                              <img src="bSD7ybebTWanIBTjY4KnwQ_thumb_11e.jpg">
+                            </a>
+                            <div class="media-body">
+                                
+                              <h4 class="media-heading user_name">nguyen thi hoa </h4>
+                                 <i class="fa fa-star" style="font-size:12px;color:#fff832"></i>
+<i class="fa fa-star" style="font-size:12px;color:#fff832"></i>
+<i class="fa fa-star" style="font-size:12px;color:#fff832"></i>
+<i class="fa fa-star" style="font-size:12px;color:#fff832"></i>
+<i class="fa fa-star" style="font-size:12px;"></i>
+<br>    
+                             phục vụ tốt ,hàng đảm bảo 
+                            </div>
+                          </div>
+                       <div class="media">
+                           <p class="pull-right"><small>5 days ago</small></p>
+                            <a class="media-left" href="#">
+                              <img src="%25MG4KINFT+q87A4Cabxipw_thumb_1c1.jpg">
+                            </a>
+                            <div class="media-body">
+                                
+                                <h4 class="media-heading user_name">hoang anh </h4>
+                                 <i class="fa fa-star" style="font-size:12px;color:#fff832"></i>
+<i class="fa fa-star" style="font-size:12px;color:#fff832"></i>
+<i class="fa fa-star" style="font-size:12px;color:#fff832"></i>
+<i class="fa fa-star" style="font-size:12px;"></i>
+<i class="fa fa-star" style="font-size:12px;"></i>
+<br>    
+                            thời gian giao hàng hơi chậm ,còn lại rất tốt 
+                              
+                              
+                            </div>
+                          </div>
+                       <div class="media">
+                           <p class="pull-right"><small>5 days ago</small></p>
+                            <a class="media-left" href="#">
+                              <img src="dong.jpg">
+                            </a>
+                            <div class="media-body">
+                                
+                              <h4 class="media-heading user_name">nguyen ha </h4>
+                                 <i class="fa fa-star" style="font-size:12px;color:#fff832"></i>
+<i class="fa fa-star" style="font-size:12px;color:#fff832"></i>
+<i class="fa fa-star" style="font-size:12px;color:#fff832"></i>
+<i class="fa fa-star" style="font-size:12px;color:#fff832"></i>
+<i class="fa fa-star" style="font-size:12px;"></i>
+<br>    
+                              hàng đẹp chất lượng tốt :) 
+                              
+                        
+                            </div>
+                          </div>
+                   </div>
+        
+        
+            </div>        
+
+</div>
+
+    </div>
+    <div id="menu3" class="tab-pane fade">       
+<div class="container">
+    	<div class="row">
+		<form role="form" id="contact-form" class="contact-form">
+                    <div class="row">
+                		<div class="col-md-6">
+                  		<div class="form-group">
+                            <input type="text" class="form-control" name="Name" autocomplete="off" id="Name" placeholder="Name">
+                  		</div>
+                  	</div>
+                    	<div class="col-md-6">
+                  		<div class="form-group">
+                            <input type="email" class="form-control" name="email" autocomplete="off" id="email" placeholder="E-mail">
+                  		</div>
+                  	</div>
+                  	</div>
+                  	<div class="row">
+                  		<div class="col-md-12">
+                  		<div class="form-group">
+                            <textarea class="form-control textarea" rows="3" name="Message" id="Message" placeholder="Message"></textarea>
+                  		</div>
+                  	</div>
+                    </div>
+                    <div class="row">
+                    <div class="col-md-12">
+                  <button type="submit" class="btn main-btn pull-right">submit</button>
+                  </div>
+                  </div>
+                </form>
+	</div>
+    
+            <div class="row">
+                <div class="col-md-8">
+                  <div class="page-header">
+                    <h1><small class="pull-right">45 comments</small> Comments </h1>
+                  </div> 
+                   <div class="comments-list">
+                       <div class="media">
+                           <p class="pull-right"><small>5 days ago</small></p>
+                            
+                            <div class="media-body">
+                                
+                              <h4 class="media-heading user_name">hoang tuan anh</h4>
+                              chất lượng đảm bảo ,phụ vụ tốt 
+                              
+                              <p><small><a href="">Like</a> - <a href="">Share</a></small></p>
+                            </div>
+                          </div>
+                       <div class="media">
+                           <p class="pull-right"><small>5 days ago</small></p>
+                          
+                            <div class="media-body">
+                                
+                              <h4 class="media-heading user_name">nguyen thi hoa </h4>
+                              ip 7plus 128GB  còn hàng ko ạ
+
+                              
+                              <p><small><a href="">Like</a> - <a href="">Share</a></small></p>
+                            </div>
+                          </div>
+                       <div class="media">
+                           <p class="pull-right"><small>5 days ago</small></p>
+                           
+                            <div class="media-body">
+                                
+                              <h4 class="media-heading user_name">hoang anh </h4>
+                             Mua IP 7 Plus giá trên có bao gồm tai nghe Ipod ko Ad?
+                              
+                              <p><small><a href="">Like</a> - <a href="">Share</a></small></p>
+                            </div>
+                          </div>
+                       <div class="media">
+                           <p class="pull-right"><small>5 days ago</small></p>
+                            <div class="media-body">
+                                
+                              <h4 class="media-heading user_name">nguyen ha </h4>
+                              hàng đẹp chất lượng tốt :) 
+                              
+                              <p><small><a href="">Like</a> - <a href="">Share</a></small></p>
+                            </div>
+                          </div>
+                   </div>
+                    
+                    
+                    
+                </div>
+            </div>
+        </div>
+        
+        
+        
+    </div>
+        </div>
+      
+                 
+        </div>
+      
+  
+        
+         
+        <!-- footer --> 
+  <footer class="set-footer">
+           <div class="container">
+         <div class="row">
+      <div class="col-md-4">
+      <p class="introduce"> <b>Fasttrack SE </b> </p>
+<p>        </p>
+<a href="fasttrack.html" class="set-text">Xem Chi Tiết <br /> </a>
+      </div>
+      <div class="col-md-4">
+        <p class="introduce"><b>About Me </b></p>
+<p>Đặng Anh Dũng </p>
+ <a href="introduceme.html" class="set-text">Xem Chi Tiết <br /> </a>
+        </div>
+      <div class="col-md-4">
+          
+                <p class="introduce"><b>Contact</b></p>
+    <p> <img src="map.png" style="height: 25px ; width: 25px" > 379 ,điện biên phủ ,quận thanh khê ,TP đà nẵng ,đà nẵng </p>
+<p><img src="phone.png" style="height: 25px ; width: 25px"> 01626097691 </p>
+
+    <img src="mail.png" style="height: 25px ; width: 25px ; float: left ; margin-right: 10px " />
+    <address>
+        <a href="mailto:ffse1702004@st.fasttrack.edu.vn" class="set-text" >ffse1702004@st.fasttrack.edu.vn</a>
+    </address>
+        </div>
+        </div> 
+        </div> 
+        </footer>      
+  
+        <!-- end footer --> 
+   
+    </body>
+        
+</html>
+<script>
+    // Định nghĩa một mảng các phần tử sẽ bỏ vào giỏ hàng
+    var shoppingCartItems = [];
+
+    $(document).ready(function () {
+        // Kiểm tra nếu đã có sessionStorage["shopping-cart-items"] hay chưa?
+        if (sessionStorage["shopping-cart-items"] != null) {
+            shoppingCartItems = JSON.parse(sessionStorage["shopping-cart-items"].toString());
+        }
+
+        // Hiển thị thông tin từ giỏ hàng
+        displayShoppingCartItems();
+    });
+
+
+    // Sự kiện click các button có class=".add-to-cart"
+    $(".add-to-cart").click(function () {
+        var button = $(this); // Lấy đối tượng button mà người dùng click
+        var id = button.attr("id"); // id của sản phẩm là id của button
+        var name = button.attr("data-name"); // name của sản phẩm là thuộc tính data-name của button
+        var price = button.attr("data-price"); // price của sản phẩm là thuộc tính data-price của button
+        var quantity = parseInt(document.getElementById("slg").value);
+
+        var item = {
+            id: id,
+            name: name,
+            price: price,
+            quantity: quantity
+        };
+
+        var exists = false;
+        if (shoppingCartItems.length > 0) {
+            $.each(shoppingCartItems, function (index, value) {
+                // Nếu mặt hàng đã tồn tại trong giỏ hàng thì chỉ cần tăng số lượng mặt hàng đó trong giỏ hàng.
+                if (value.id == item.id) {
+                    value.quantity++;
+                    exists = true;
+                    return false;
+                }
+            });
+        }
+
+        // Nếu mặt hàng chưa tồn tại trong giỏ hàng thì bổ sung vào mảng
+        if (!exists) {
+            shoppingCartItems.push(item);
+        }
+
+        // Lưu thông tin vào sessionStorage
+        sessionStorage["shopping-cart-items"] = JSON.stringify(shoppingCartItems); // Chuyển thông tin mảng shoppingCartItems sang JSON trước khi lưu vào sessionStorage
+        // Gọi hàm hiển thị giỏ hàng
+        displayShoppingCartItems();
+    });
+
+    // Xóa hết giỏ hàng shoppingCartItems
+    $("#button-clear").click(function () {
+        shoppingCartItems = [];
+        sessionStorage["shopping-cart-items"] = JSON.stringify(shoppingCartItems);
+        $("#table-products > tbody").html("");
+    });
+
+
+    // Hiển thị giỏ hàng ra table
+    function displayShoppingCartItems() {
+        if (sessionStorage["shopping-cart-items"] != null) {
+            shoppingCartItems = JSON.parse(sessionStorage["shopping-cart-items"].toString()); // Chuyển thông tin từ JSON trong sessionStorage sang mảng shoppingCartItems.
+
+            $("#table-products > tbody").html("");
+            // Duyệt qua mảng shoppingCartItems để append từng item dòng vào table
+            $.each(shoppingCartItems, function (index, item) {
+                var htmlString = "";
+                htmlString += "<tr>";
+                htmlString += "<td>" + item.id + "</td>";
+                htmlString += "<td>" + item.name + "</td>";
+                htmlString += "<td style='text-align: right'>" + item.price + "</td>";
+                htmlString += "<td style='text-align: right'>" + item.quantity + "</td>";
+                htmlString += "<td style='text-align: right'>" + item.price * item.quantity + "</td>";
+                htmlString += "</tr>";
+
+                $("#table-products > tbody:last").append(htmlString);
+
+            });
+        }
+    }
+</script>
+        
+     
